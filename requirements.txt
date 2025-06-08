@@ -20,4 +20,4 @@ flask
 gunicorn
 python-multipart
 openpyxl
-# -e .
+-e .
