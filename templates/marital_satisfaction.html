@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Marital Satisfaction Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="glassmorphic-card">
+        <h1>💖 Marital Satisfaction Predictor</h1>
+        <form method="POST">
+          <label>What is your age?</label>
+          <input type="number" name="age" step="1" required value="{{ request.form.age or '' }}" />
+
+          <label>How many children have you brought up?</label>
+          <input type="number" name="num_brought_up_children" required value="{{ request.form.num_brought_up_children or '' }}" />
+
+          <label>Do you consider yourself religious?</label>
+          <select name="religiosity" required>
+            <option value="" disabled {% if request.form.religiosity is not defined %}selected{% endif %}>Select</option>
+            <option value="1" {% if request.form.religiosity == '1' %}selected{% endif %}>Yes</option>
+            <option value="0" {% if request.form.religiosity == '0' %}selected{% endif %}>No</option>
+          </select>
+
+          <label>Do you feel safe in your marriage?</label>
+          <select name="safety" required>
+            <option value="" disabled {% if request.form.safety is not defined %}selected{% endif %}>Select</option>
+            <option value="1" {% if request.form.safety == '1' %}selected{% endif %}>Yes</option>
+            <option value="0" {% if request.form.safety == '0' %}selected{% endif %}>No</option>
+          </select>
+
+          <label>Do you feel loved in your relationship?</label>
+          <select name="love" required>
+            <option value="" disabled {% if request.form.love is not defined %}selected{% endif %}>Select</option>
+            <option value="1" {% if request.form.love == '1' %}selected{% endif %}>Yes</option>
+            <option value="0" {% if request.form.love == '0' %}selected{% endif %}>No</option>
+          </select>
+
+          <label>Do you and your partner align on cultural/societal values (GLOBE)?</label>
+          <select name="globe" required>
+            <option value="" disabled {% if request.form.globe is not defined %}selected{% endif %}>Select</option>
+            <option value="1" {% if request.form.globe == '1' %}selected{% endif %}>Yes</option>
+            <option value="0" {% if request.form.globe == '0' %}selected{% endif %}>No</option>
+          </select>
+
+          <button type="submit">🔮 Predict</button>
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result-box">
+          <h2>Prediction:</h2>
+          <p>
+            {% if prediction == 0 %}
+              ❌ Not satisfied in marriage
+            {% else %}
+              ✅ Satisfied in marriage
+            {% endif %}
+          </p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

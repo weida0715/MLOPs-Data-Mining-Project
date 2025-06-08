@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 40px 0; /* give breathing room */
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* change from center to top */
+    overflow-y: auto; /* allow scrolling */
+  }
+  
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .glassmorphic-card {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 24px 30px;
+    /* Remove these two lines */
+    /* max-height: 90vh; */
+    /* overflow-y: hidden; */
+    width: 90%;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.9s ease;
+  }
+  
+  
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #ffffff;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 1em;
+    color: #ffffffcc;
+  }
+  
+  input,
+  select {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 0.95em;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  
+  input::placeholder,
+  select {
+    color: #fff;
+  }
+  
+  input:focus,
+  select:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px #fff;
+  }
+
+  select option {
+    color: #333;
+    background-color: #fff;
+  }
+  
+  button {
+    margin-top: 30px;
+    padding: 14px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .result-box {
+    margin-top: 30px;
+    padding: 18px;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeInUp 0.6s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
