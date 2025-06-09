@@ -11,40 +11,58 @@
       <div class="glassmorphic-card">
         <h1>💖 Marital Satisfaction Predictor</h1>
         <form method="POST">
-          <label>What is your age?</label>
+          <label>What is your age? (age)</label>
           <input type="number" name="age" step="1" required value="{{ request.form.age or '' }}" />
 
-          <label>How many children have you brought up?</label>
+          <label>How many children have you brought up? (num_brought_up_children)</label>
           <input type="number" name="num_brought_up_children" required value="{{ request.form.num_brought_up_children or '' }}" />
 
-          <label>Do you consider yourself religious?</label>
+          <label>Do you consider yourself religious? (religiosity)</label>
           <select name="religiosity" required>
             <option value="" disabled {% if request.form.religiosity is not defined %}selected{% endif %}>Select</option>
-            <option value="1" {% if request.form.religiosity == '1' %}selected{% endif %}>Yes</option>
-            <option value="0" {% if request.form.religiosity == '0' %}selected{% endif %}>No</option>
+            <option value="1" {% if request.form.religiosity == '1' %}selected{% endif %}>1 - Strongly Disagree</option>
+            <option value="2" {% if request.form.religiosity == '2' %}selected{% endif %}>2 - Disagree</option>
+            <option value="3" {% if request.form.religiosity == '3' %}selected{% endif %}>3 - Somewhat Disagree</option>
+            <option value="4" {% if request.form.religiosity == '4' %}selected{% endif %}>4 - Neutral</option>
+            <option value="5" {% if request.form.religiosity == '5' %}selected{% endif %}>5 - Somewhat Agree</option>
+            <option value="6" {% if request.form.religiosity == '6' %}selected{% endif %}>6 - Agree</option>
+            <option value="7" {% if request.form.religiosity == '7' %}selected{% endif %}>7 - Strongly Agree</option>
           </select>
-
-          <label>Do you feel safe in your marriage?</label>
+          
+          <label>Do you feel safe in your marriage? (safety)</label>
           <select name="safety" required>
             <option value="" disabled {% if request.form.safety is not defined %}selected{% endif %}>Select</option>
-            <option value="1" {% if request.form.safety == '1' %}selected{% endif %}>Yes</option>
-            <option value="0" {% if request.form.safety == '0' %}selected{% endif %}>No</option>
+            <option value="1" {% if request.form.safety == '1' %}selected{% endif %}>1 - Strongly Disagree</option>
+            <option value="2" {% if request.form.safety == '2' %}selected{% endif %}>2 - Disagree</option>
+            <option value="3" {% if request.form.safety == '3' %}selected{% endif %}>3 - Somewhat Disagree</option>
+            <option value="4" {% if request.form.safety == '4' %}selected{% endif %}>4 - Neutral</option>
+            <option value="5" {% if request.form.safety == '5' %}selected{% endif %}>5 - Somewhat Agree</option>
+            <option value="6" {% if request.form.safety == '6' %}selected{% endif %}>6 - Agree</option>
+            <option value="7" {% if request.form.safety == '7' %}selected{% endif %}>7 - Strongly Agree</option>
           </select>
-
-          <label>Do you feel loved in your relationship?</label>
+          
+          <label>Do you feel loved in your relationship? (love)</label>
           <select name="love" required>
             <option value="" disabled {% if request.form.love is not defined %}selected{% endif %}>Select</option>
-            <option value="1" {% if request.form.love == '1' %}selected{% endif %}>Yes</option>
-            <option value="0" {% if request.form.love == '0' %}selected{% endif %}>No</option>
+            <option value="1" {% if request.form.love == '1' %}selected{% endif %}>1 - Strongly Disagree</option>
+            <option value="2" {% if request.form.love == '2' %}selected{% endif %}>2 - Disagree</option>
+            <option value="3" {% if request.form.love == '3' %}selected{% endif %}>3 - Neutral</option>
+            <option value="4" {% if request.form.love == '4' %}selected{% endif %}>4 - Agree</option>
+            <option value="5" {% if request.form.love == '5' %}selected{% endif %}>5 - Strongly Agree</option>
           </select>
-
+          
           <label>Do you and your partner align on cultural/societal values (GLOBE)?</label>
           <select name="globe" required>
             <option value="" disabled {% if request.form.globe is not defined %}selected{% endif %}>Select</option>
-            <option value="1" {% if request.form.globe == '1' %}selected{% endif %}>Yes</option>
-            <option value="0" {% if request.form.globe == '0' %}selected{% endif %}>No</option>
+            <option value="1" {% if request.form.globe == '1' %}selected{% endif %}>1 - Strongly Disagree</option>
+            <option value="2" {% if request.form.globe == '2' %}selected{% endif %}>2 - Disagree</option>
+            <option value="3" {% if request.form.globe == '3' %}selected{% endif %}>3 - Somewhat Disagree</option>
+            <option value="4" {% if request.form.globe == '4' %}selected{% endif %}>4 - Neutral</option>
+            <option value="5" {% if request.form.globe == '5' %}selected{% endif %}>5 - Somewhat Agree</option>
+            <option value="6" {% if request.form.globe == '6' %}selected{% endif %}>6 - Agree</option>
+            <option value="7" {% if request.form.globe == '7' %}selected{% endif %}>7 - Strongly Agree</option>
           </select>
-
+ 
           <button type="submit">🔮 Predict</button>
         </form>
 
