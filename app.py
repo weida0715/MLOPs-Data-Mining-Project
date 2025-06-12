@@ -18,13 +18,13 @@ def index():
             "age": float(request.form["age"]),
             "num_brought_up_children": int(request.form["num_brought_up_children"]),
             "religiosity": int(request.form["religiosity"]),
+            "marriage_duration": int(request.form["marriage_duration"]),
             "safety": int(request.form["safety"]),
             "love": int(request.form["love"]),
-            "globe": int(request.form["globe"])
         }
 
         df = pd.DataFrame([data])
-        prediction = model.predict(df)[0]
+        prediction = model.predict(df)
 
     return render_template("marital_satisfaction.html", prediction=prediction)
 
